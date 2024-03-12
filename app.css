@@ -1,0 +1,132 @@
+body{
+    background-color:blanchedalmond;
+}
+
+#background {
+    margin:15% auto;
+    background-color: lightgrey;
+    width:400px;
+    height:216px;
+    border-radius: 150px;
+    box-sizing:border-box;
+    z-index: 1;
+    border:8px solid white;
+}
+
+#circle {
+    height:180px;
+    width:180px;
+    background-color: none;
+    border-radius: 50%;
+    position: relative;
+    display: block;
+    transition : left 1s ease;
+    top: 10px;
+    z-index: 100;
+}
+
+#face {
+    height:180px;
+    width:180px;
+    position: relative;
+    top:-370px;
+    left:10px;
+    z-index: 98;
+    transition : left 1s ease;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#color {
+    width:100%;
+    height: 100%;
+    z-index: 3;
+    border-radius: 100px;
+    position: relative;
+    top:-180px;
+    transition: opacity 1s ease;
+}
+
+#leftEye {
+    position: relative;
+    border-radius: 50%;
+    width: 20px;
+    transition: left 1s ease;
+}
+
+#rightEye {
+    position: relative;
+	border-radius: 50%;
+    width: 20px;
+    transition: left 1s ease;
+}
+
+
+#toggle:checked + #circle {
+    left: calc(100% - 190px);
+}
+
+#toggle:not(:checked) + #circle {
+    left : 10px;
+}
+
+#toggle:checked ~ #color { 
+    background: rgb(224,255,162);
+    background: linear-gradient(90deg, rgba(224,255,162,1) 0%, rgba(254,213,87,1) 35%, rgba(244,117,164,1) 100%);
+    opacity: 1;
+}
+
+#toggle:not(:checked) ~ #color {
+    background: lightgrey;
+    opacity: 0;
+}
+
+#toggle:checked ~ #face {
+    left: calc(100% - 190px);
+}
+
+#toggle:not(:checked) ~ #face {
+    left: 10px;
+}
+
+#toggle:checked ~ #face #leftEye {
+    left:80px;
+    top:30%;
+    width: 20px;
+	height: 40px;
+	background-color: orange;
+	box-shadow: 5px 10px 0px 0px transparent; 
+    transform: rotate(0deg);
+}
+
+#toggle:checked ~ #face #rightEye {
+    left:130px;
+    top:5%;
+    width: 20px;
+	height: 40px;
+	background-color: orange;
+	box-shadow: 5px 10px 0px 0px transparent; 
+    transform: rotate(-10deg);
+}
+
+#toggle:not(:checked) ~ #face #leftEye {
+    left:20px;
+    top:50%;
+	height: 20px;
+	background-color: transparent;
+	box-shadow: 5px 10px 0px 0px grey; 
+    transform: rotate(-130deg);
+}
+
+#toggle:not(:checked) ~ #face #rightEye {
+    left:80px;
+    top:40%;
+	height: 20px;
+	background-color: transparent;
+	box-shadow: 5px 10px 0px 0px grey; 
+    transform: rotate(-160deg);
+}
+
+#toggle {
+    display: none;
+}
